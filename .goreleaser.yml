@@ -17,11 +17,15 @@ builds:
       - "-s -w -X main.version={{.Version}} -X main.commit={{.Commit}}"
     goos:
       - linux
+      - darwin
     goarch:
       - amd64
       - "386"
       - arm
       - arm64
+    ignore:
+      - goarch: arm
+        goos: darwin
     binary: "{{ .ProjectName }}_v{{ .Version }}"
 archives:
   - format: zip
